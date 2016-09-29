@@ -5,8 +5,6 @@
 include ':libraries:base'
 include ':libraries:common'
 include ':libraries:controller'
-//include ':libraries:proto'
-//include 'com.google.protobuf.nano:protobuf-javanano:3.1.0'
 
 /** Use this to build the controller client **/
 include ':samples:sdk-controllerclient'
