@@ -126,7 +126,7 @@ public abstract class BaseController implements Runnable {
                     controllerTouchEvent.y = event.motionEvent.pointers[0].getNormalizedY();
 
                     controllerTouchEvent.timestampNanos = ((event.motionEvent.getAction() & 0xff/*ACTION_MASK*/) == 0) ? ((int) (event.motionEvent.getTimestamp() - lastDownTimeMS)) : 0;
-                    controllerListener.onControllerTouchEvent(controllerTouchEvent);
+                       controllerListener.deprecatedOnControllerTouchEvent(controllerTouchEvent); //deprecated
                     if ((event.motionEvent.getAction() & 0xff/*ACTION_MASK*/) != 0) {
                         lastDownTimeMS = event.motionEvent.getTimestamp();
                     }
@@ -137,7 +137,7 @@ public abstract class BaseController implements Runnable {
                     controllerGyroEvent.z = event.gyroscopeEvent.getZ();
 
                     controllerGyroEvent.timestampNanos = event.gyroscopeEvent.getTimestamp();
-                    controllerListener.onControllerGyroEvent(controllerGyroEvent); //probably not used
+                    controllerListener.deprecatedOnControllerGyroEvent(controllerGyroEvent); //probably not used //deprecated
                     break;
                 case PhoneEvent.Type.ACCELEROMETER:
                     controllerAccelEvent.x = event.accelerometerEvent.getX();
@@ -145,7 +145,7 @@ public abstract class BaseController implements Runnable {
                     controllerAccelEvent.z = -event.accelerometerEvent.getZ();
 
                     controllerAccelEvent.timestampNanos = event.accelerometerEvent.getTimestamp();
-                    controllerListener.onControllerAccelEvent(controllerAccelEvent); //probably not used
+                    controllerListener.deprecatedOnControllerAccelEvent(controllerAccelEvent); //probably not used //deprecated
 
                     //controllerOrientationEvent.timestampNanos = event.accelerometerEvent.getTimestamp(); //this is just test for phone without gyroscope
                     //controllerListener.onControllerOrientationEvent(controllerOrientationEvent); //faking it when no orientation event occurs
@@ -157,7 +157,7 @@ public abstract class BaseController implements Runnable {
                     controllerOrientationEvent.qw = event.orientationEvent.getW();
 
                     controllerOrientationEvent.timestampNanos = event.orientationEvent.getTimestamp();
-                    controllerListener.onControllerOrientationEvent(controllerOrientationEvent); //must be send
+                    controllerListener.deprecatedOnControllerOrientationEvent(controllerOrientationEvent); //must be send //deprecated
                     break;
                 case PhoneEvent.Type.KEY:
                     int button = 0;
@@ -184,7 +184,7 @@ public abstract class BaseController implements Runnable {
                     controllerButtonEvent.button = button;
                     controllerButtonEvent.down = event.keyEvent.getAction() == 0;
 
-                    controllerListener.onControllerButtonEvent(controllerButtonEvent);
+                    controllerListener.deprecatedOnControllerButtonEvent(controllerButtonEvent); //deprecated
                     break;
                 case PhoneEvent.Type.DEPTH_MAP: //not used right now
                     Log.d("DEPTH_MAP", event.depthMapEvent.toString());

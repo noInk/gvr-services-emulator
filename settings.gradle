@@ -5,10 +5,16 @@
 include ':libraries:base'
 include ':libraries:common'
 include ':libraries:controller'
+//include ':libraries:proto'
+//include 'com.google.protobuf.nano:protobuf-javanano:3.1.0'
 
+/** Use this to build the controller client **/
 include ':samples:sdk-controllerclient'
 
+/** Use this to build the gvr emulator  **/
 include ':services:gvr-emulator'
+
+
 
 // Android Studio doesn't preserve nested modules in its Project View. To create
 // a cleaner layout, we reorganize and rename the modules loaded above.

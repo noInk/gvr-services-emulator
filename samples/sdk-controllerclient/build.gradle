@@ -15,9 +15,17 @@
  */
 apply plugin: 'com.android.application'
 
+buildscript {
+    repositories {
+        mavenCentral()
+
+    }
+
+}
+
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
 
     defaultConfig {
         minSdkVersion 19
@@ -25,7 +33,30 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFile 'proguard-android.txt'
+
+        }
+
+        debug {
+            minifyEnabled false
+
+        }
+    }
+
+
+
+
+    lintOptions {
+        abortOnError false
+    }
 }
+
+
+
 
 dependencies {
     compile project(':libraries-base')

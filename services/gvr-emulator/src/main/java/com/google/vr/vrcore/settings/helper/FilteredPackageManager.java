@@ -71,6 +71,24 @@ public class FilteredPackageManager extends PackageManager {
     }
 
     @Override
+    public int[] getPackageGids(String s, int i) throws NameNotFoundException {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return this.proxy.getPackageGids(s, i);
+        }else{
+            return this.proxy.getPackageGids(s, i);
+        }
+    }
+
+    @Override
+    public int getPackageUid(String s, int i) throws NameNotFoundException {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return this.proxy.getPackageUid(s, i);
+        }else{
+            return this.proxy.getPackageUid(s, i);
+        }
+    }
+
+    @Override
     public PermissionInfo getPermissionInfo(String name, int flags) throws NameNotFoundException {
         return this.proxy.getPermissionInfo(name, flags);
     }
@@ -188,6 +206,11 @@ public class FilteredPackageManager extends PackageManager {
     @Override
     public boolean hasSystemFeature(String name) {
         return this.proxy.hasSystemFeature(name);
+    }
+
+    @Override
+    public boolean hasSystemFeature(String s, int i) {
+        return false;
     }
 
     @Override

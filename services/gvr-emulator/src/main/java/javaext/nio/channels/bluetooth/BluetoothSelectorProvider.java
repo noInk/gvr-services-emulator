@@ -3,6 +3,7 @@ package javaext.nio.channels.bluetooth;
 import android.util.Log;
 
 import java.io.IOException;
+import java.net.ProtocolFamily;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.Pipe;
 import java.nio.channels.ServerSocketChannel;
@@ -23,6 +24,12 @@ public class BluetoothSelectorProvider extends SelectorProvider {
 
     @Override
     public DatagramChannel openDatagramChannel() throws IOException {
+        Log.d("BT SelectorProvider", "openDatagramChannel");
+        return null;
+    }
+
+    @Override
+    public DatagramChannel openDatagramChannel(ProtocolFamily protocolFamily) throws IOException {
         Log.d("BT SelectorProvider", "openDatagramChannel");
         return null;
     }

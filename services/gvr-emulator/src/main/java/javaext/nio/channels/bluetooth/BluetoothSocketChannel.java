@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.SocketOption;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.ClosedByInterruptException;
@@ -12,6 +13,7 @@ import java.nio.channels.ClosedChannelException;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.channels.spi.SelectorProvider;
+import java.util.Set;
 
 import javaext.net.bluetooth.BluetoothSocket;
 
@@ -27,6 +29,41 @@ public class BluetoothSocketChannel extends SocketChannel /* implements java.nio
 
     public static BluetoothSocketChannel open() {
         return new BluetoothSocketChannel(SelectorProvider.provider());
+    }
+
+    @Override
+    public SocketChannel bind(SocketAddress socketAddress) throws IOException {
+        return null;
+    }
+
+    @Override
+    public SocketAddress getLocalAddress() throws IOException {
+        return null;
+    }
+
+    @Override
+    public <T> SocketChannel setOption(SocketOption<T> socketOption, T t) throws IOException {
+        return null;
+    }
+
+    @Override
+    public <T> T getOption(SocketOption<T> socketOption) throws IOException {
+        return null;
+    }
+
+    @Override
+    public Set<SocketOption<?>> supportedOptions() {
+        return null;
+    }
+
+    @Override
+    public SocketChannel shutdownInput() throws IOException {
+        return null;
+    }
+
+    @Override
+    public SocketChannel shutdownOutput() throws IOException {
+        return null;
     }
 
     @Override
@@ -53,6 +90,11 @@ public class BluetoothSocketChannel extends SocketChannel /* implements java.nio
     @Override
     public boolean finishConnect() throws IOException {
         return false;
+    }
+
+    @Override
+    public SocketAddress getRemoteAddress() throws IOException {
+        return null;
     }
 
     @Override

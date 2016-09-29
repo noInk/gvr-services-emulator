@@ -2,11 +2,11 @@
 
 ## Preparation
 
-Download and install [controller_emulator.apk](https://github.com/googlevr/gvr-android-sdk/tree/6a1632af2a08619e9a27c75acec4650b81acb6c7/ndk-beta/apks/controller_emulator.apk?raw=true) on your _controller phone_.
+Download and install [controller_emulator.apk] on your _controller phone_.
 
-On your _headset phone_ with Android version bewteen 4.4 and 6.0.1 download and install **services-gvr-emulator.apk** ([direct link](https://github.com/domination/gvr-services-emulator/blob/master/apks/services-gvr-emulator.apk?raw=true))
+On your _headset phone_ with Android version bewteen 4.4 and 6.0.1 download and install **services-gvr-emulator.apk**.
 
-Download and install **samples-controllerclient.apk** ([direct link](https://github.com/domination/gvr-services-emulator/blob/master/apks/samples-controllerclient.apk?raw=true) - version prepared for Android >= KitKat).
+Download and install **samples-controllerclient.apk** - version prepared for Android >= KitKat).
 
 ## Setup
 

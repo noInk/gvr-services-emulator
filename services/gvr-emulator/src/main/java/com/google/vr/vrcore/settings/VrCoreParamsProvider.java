@@ -7,8 +7,10 @@ import android.util.Log;
 
 import com.google.vr.cardboard.LegacyVrParamsProvider;
 import com.google.vr.cardboard.VrParamsProvider;
+import com.google.vr.vrcore.nano.SdkConfiguration;
 import com.google.vrtoolkit.cardboard.proto.nano.CardboardDevice;
 import com.google.vrtoolkit.cardboard.proto.nano.Phone;
+import com.google.vrtoolkit.cardboard.proto.nano.Preferences;
 
 public class VrCoreParamsProvider implements VrParamsProvider {
 
@@ -35,6 +37,27 @@ public class VrCoreParamsProvider implements VrParamsProvider {
     public Phone.PhoneParams readPhoneParams() {
         Log.d("VrCoreParamsProvider", "readPhoneParams");
         return this.legacyVrParamsProvider.readPhoneParams();
+    }
+
+    @Override
+    public SdkConfiguration.SdkConfigurationParams readSdkConfigurationParams(SdkConfiguration.SdkConfigurationRequest sdkConfigurationRequest) {
+        Log.d("SdkConfigurationParams", "SdkConfigurationParams");
+
+        if (this.context.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == PackageManager.PERMISSION_DENIED) {
+            this.context.startActivity(PermissionsHelperActivity.createIntent(this.context, new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, "TODO msg"));
+        }
+
+        return this.legacyVrParamsProvider.readSdkConfigurationParams(sdkConfigurationRequest);
+    }
+
+    @Override
+    public Preferences.UserPrefs readUserPrefs() {
+        Log.d("readUserPrefs", "readUserPrefs");
+
+        if (this.context.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == PackageManager.PERMISSION_DENIED) {
+            this.context.startActivity(PermissionsHelperActivity.createIntent(this.context, new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, "TODO msg"));
+        }
+        return  this.legacyVrParamsProvider.readUserPrefs();
     }
 
     @Override
